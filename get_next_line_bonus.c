@@ -6,7 +6,7 @@
 /*   By: ccolin <ccolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:18:52 by ccolin            #+#    #+#             */
-/*   Updated: 2024/05/21 10:24:17 by ccolin           ###   ########.fr       */
+/*   Updated: 2024/05/21 11:35:46 by ccolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ char	*ft_read_from_file(int fd, char *leftover)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	ft_memset(buffer, 0, BUFFER_SIZE);
-	while (!ft_strchr(buffer, '\n'))
+	ft_gnl_memset(buffer, 0, BUFFER_SIZE);
+	while (!ft_gnl_strchr(buffer, '\n'))
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read == -1)
@@ -57,7 +57,7 @@ char	*ft_read_from_file(int fd, char *leftover)
 			break ;
 		else
 			buffer[bytes_read] = '\0';
-		leftover = ft_strjoin(leftover, buffer);
+		leftover = ft_gnl_strjoin(leftover, buffer);
 	}
 	free(buffer);
 	return (leftover);
@@ -96,5 +96,5 @@ char	*ft_find_leftover(char *leftover)
 		leftover++;
 	if (*leftover == '\0')
 		return (NULL);
-	return (ft_strdup(leftover));
+	return (ft_gnl_strdup(leftover));
 }

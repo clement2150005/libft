@@ -6,13 +6,13 @@
 /*   By: ccolin <ccolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 10:45:06 by ccolin            #+#    #+#             */
-/*   Updated: 2024/05/19 21:25:44 by ccolin           ###   ########.fr       */
+/*   Updated: 2024/05/21 11:35:47 by ccolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_gnl_strchr(const char *s, int c)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ char	*ft_strchr(const char *s, int c)
 	return ((void *)0);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_gnl_strjoin(char const *s1, char const *s2)
 {
 	int		i;
 	int		j;
@@ -35,8 +35,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return (ft_strdup(s2));
-	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+		return (ft_gnl_strdup(s2));
+	str = malloc(sizeof(char) * (ft_gnl_strlen(s1) + ft_gnl_strlen(s2) + 1));
 	if (str == NULL)
 		return (NULL);
 	while (s1[i])
@@ -53,14 +53,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-char	*ft_strdup(const char *s1)
+char	*ft_gnl_strdup(const char *s1)
 {
 	int		i;
 	int		size;
 	char	*ptr;
 
 	i = 0;
-	size = ft_strlen(s1);
+	size = ft_gnl_strlen(s1);
 	ptr = malloc(sizeof(char) * size + 1);
 	if (ptr == NULL)
 		return (NULL);
@@ -73,7 +73,7 @@ char	*ft_strdup(const char *s1)
 	return (ptr);
 }
 
-int	ft_strlen(const char *str)
+int	ft_gnl_strlen(const char *str)
 {
 	int	i;
 
@@ -83,7 +83,7 @@ int	ft_strlen(const char *str)
 	return (i);
 }
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_gnl_memset(void *b, int c, size_t len)
 {
 	size_t			i;
 	unsigned char	*ptr;

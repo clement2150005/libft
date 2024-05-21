@@ -6,7 +6,7 @@
 /*   By: ccolin <ccolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 10:34:18 by ccolin            #+#    #+#             */
-/*   Updated: 2024/05/21 11:03:48 by ccolin           ###   ########.fr       */
+/*   Updated: 2024/05/21 11:35:47 by ccolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@
 
 # define BUFFER_SIZE 1024
 
-void	*ft_memset(void *b, int c, size_t len);
+void	*ft_gnl_memset(void *b, int c, size_t len);
 char	*ft_find_leftover(char *leftover);
-int		ft_strlen(const char *str);
-void	*ft_memset(void *b, int c, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+int		ft_gnl_strlen(const char *str);
+char	*ft_gnl_strjoin(char const *s1, char const *s2);
 char	*ft_read_from_file(int fd, char *leftover);
 char	*ft_find_line(char *next_line);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
+char	*ft_gnl_strchr(const char *s, int c);
+char	*ft_gnl_strdup(const char *s1);
 char	*get_next_line(int fd);
 
 #endif
