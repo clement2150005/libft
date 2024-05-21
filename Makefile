@@ -31,7 +31,9 @@ SRC				=	ft_striteri.c \
 					ft_putstr_fd.c\
 					ft_putendl_fd.c\
 					ft_putnbr_fd.c\
-					ft_strncmp.c
+					ft_strncmp.c\
+					get_next_line_bonus.c\
+					get_next_line_utils_bonus.c
 BONUS			=	ft_lstnew.c\
 					ft_lstsize.c\
 					ft_lstlast.c\
@@ -45,7 +47,7 @@ BONUS_OBJS		= $(BONUS:.c=.o)
 SRCS			= ${addprefix ${PRE}, ${SRC}} ${addprefix ${PRE}, ${BONUS_SRC}}
 OBJS			= ${SRCS:.c=.o}
 PRE				=	./
-HEAD			=	libft.h
+HEAD			=	libft.h get_next_line_bonus.h
 NAME			=	libft.a
 AR				=	ar rc
 LIB				=	ranlib
@@ -54,9 +56,9 @@ RM				=	rm -rf
 CFLAGS			=	-Wall -Wextra -Werror
 all:			${NAME}
 .c.o:
-				${CC} ${CFLAGS} -c -I ${HEAD} $< -o ${<:.c=.o}
-${NAME}:	${OBJS}
-				${AR} ${NAME} ${OBJS}
+				${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+${NAME}:	${OBJS} ${BONUS_OBJS}
+				${AR} ${NAME} ${OBJS} ${BONUS_OBJS}
 				${LIB} ${NAME}
 re:				fclean all
 bonus:			$(OBJS) $(BONUS_OBJS)
