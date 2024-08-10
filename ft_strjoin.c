@@ -6,7 +6,7 @@
 /*   By: ccolin <ccolin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 10:56:20 by ccolin            #+#    #+#             */
-/*   Updated: 2024/04/25 10:59:37 by ccolin           ###   ########.fr       */
+/*   Updated: 2024/08/10 12:47:52 by ccolin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	char	*str;
 
-	i = 0;
-	j = 0;
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
 	str = malloc((ft_len(s1) + ft_len(s2) + 1) * sizeof(char));
-	if (str == NULL)
+	if (!str)
 		return (NULL);
-	while (s1[i])
-	{
-		str[j++] = s1[i++];
-	}
+	i = -1;
+	j = 0;
+	while (s1[++i])
+		str[j++] = s1[i];
 	i = 0;
 	while (s2[i])
-	{
 		str[j++] = s2[i++];
-	}
 	str[j] = '\0';
 	return (str);
 }
